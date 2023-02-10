@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<RouterView v-slot="{ Component }">
+  <Transition name="nested">
+    <Suspense
+      v-if="Component"
+      timeout="0"
+    >
+      <template #default>
+        <Component :is="Component" />
+      </template>
+      <template #fallback>
+        <AppBanner />
+      </template>
+    </Suspense>
+  </Transition>
+</RouterView>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background: #E5E5E5;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 </style>
