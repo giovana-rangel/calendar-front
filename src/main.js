@@ -18,6 +18,7 @@ import Listbox from 'primevue/listbox';
 import Calendar from 'primevue/calendar';
 import InputText from 'primevue/inputtext';
 import Menubar from 'primevue/menubar';
+import Button from 'primevue/button';
 
 // V-Calendar component
 import 'v-calendar/dist/style.css';
@@ -41,5 +42,6 @@ app.component('CalendarInput', Calendar)
 app.component('DatePicker', DatePicker)
 app.component('AppInput', InputText)
 app.component('MenuBar', Menubar)
+app.component('AppButton', Button)
 
 app.mount('#app')
